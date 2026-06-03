@@ -1,5 +1,7 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿﻿@model CitasApp.Models.Paciente
+<h1>@Model.Nombre @Model.Apellido</h1>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Teléfono:</strong> @Model.Telefono</p>
+<a asp-action="Index">← Volver a la lista</a>
+<br />
+<a asp-controller="Cita" asp-action="PorPaciente" asp-route-pacienteId="@Model.Id">Ver sus citas</a>
