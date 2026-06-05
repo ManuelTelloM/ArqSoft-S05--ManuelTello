@@ -26,5 +26,19 @@
     "Apellido": "Phoenix",
     "Especialidad": "Cardiologo",
     "NumeroLicencia": "CGO-00083"
+  },
+  {
+    "Id": 5,
+    "Nombre": "Ezio",
+    "Apellido": "Auditore",
+    "Especialidad": "Terápia Física",
+    "NumeroLicencia": "AC-123456"
+  },
+  {
+    "Id": 6,
+    "Nombre": "El hombre",
+    "Apellido": "spiderman",
+    "Especialidad": "Internista",
+    "NumeroLicencia": "LIC-68954"
   }
 ]

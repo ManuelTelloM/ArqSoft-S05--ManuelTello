@@ -26,6 +26,20 @@
     "Apellido": "Robles",
     "Email": "mel_tree@mail.com",
     "Telefono": "555-06711"
+  },
+  {
+    "Id": 5,
+    "Nombre": "Angel",
+    "Apellido": "Lugo",
+    "Email": "lugo@email.com",
+    "Telefono": "555-78452"
+  },
+  {
+    "Id": 6,
+    "Nombre": "Baby",
+    "Apellido": "Grogu",
+    "Email": "elstarwars@gmail.com",
+    "Telefono": "555-23356"
   }
-  
+
 ]

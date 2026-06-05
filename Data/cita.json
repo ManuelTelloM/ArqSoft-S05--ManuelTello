@@ -44,5 +44,23 @@
     "Hora": "05:30:00",
     "Motivo": "Cirugia",
     "Estado": "Confirmada"
+  },
+  {
+    "Id": 6,
+    "PacienteId": 6,
+    "MedicoId": 5,
+    "Fecha": "2026-07-01",
+    "Hora": "05:30:00",
+    "Motivo": "Chequeo general",
+    "Estado": "Pendeinte"
+  },
+  {
+    "Id": 7,
+    "PacienteId": 5,
+    "MedicoId": 5,
+    "Fecha": "2026-10-01",
+    "Hora": "06:30:00",
+    "Motivo": "Chequeo general",
+    "Estado": "Cancelada"
   }
 ]
