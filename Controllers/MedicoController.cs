@@ -1,52 +1,44 @@
 ﻿using Citas_App.Models;
-using Citas_App.Models;
-using Citas_App.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
 
 namespace Citas_App.Controllers
 {
     public class MedicoController : Controller
     {
-        private static List<Medico> _medicos = new()
+        // Apunta exactamente a Medico.json en tu carpeta Data
+        private readonly string _jsonPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "medicos.json");
+
+        private List<Medico> ObtenerMedicosDesdeJson()
         {
-            new Medico
-            {
-                Id = 1,
-                Nombre = "Dr. Carlos",
-                Apellido = "Reyes",
-                Especialidad="Medicina General",
-                NumeroLicencia = "MG-10421"
-            },
-            new Medico
-            {
-                Id = 2,
-                Nombre = "Dra. Patricia",
-                Apellido = "Vega",
-                Especialidad="Pediatria",
-                NumeroLicencia = "PG-20835"
-            },
-            new Medico
-            {
-                Id = 3,
-                Nombre = "Dr. Roberto",
-                Apellido = "Sánchez",
-                Especialidad="Cardiología",
-                NumeroLicencia = "CA-30117"
-            },
-        };
-        // Lista con filtro opcional por género
+            if (!System.IO.File.Exists(_jsonPath)) return new List<Medico>();
 
-        public IActionResult Index() => View(_medicos);
+            string jsonString = System.IO.File.ReadAllText(_jsonPath);
+            return JsonSerializer.Deserialize<List<Medico>>(jsonString) ?? new List<Medico>();
+        }
 
+        // Lista todos los médicos disponibles
+        public IActionResult Index()
+        {
+            var medicos = ObtenerMedicosDesdeJson();
+            return View(medicos);
+        }
 
-
-        // Detalle de un item
-
+        // Muestra el detalle de un médico y su especialidad
         public IActionResult Detalle(int id)
         {
-            var medico = _medicos.FirstOrDefault(m => m.Id == id);
-            return medico == null ? NotFound() : View(medico);
+            var medicos = ObtenerMedicosDesdeJson();
+            var Medico = medicos.FirstOrDefault(m => m.Id == id);
+
+            if (Medico == null)
+            {
+                return NotFound();
+            }
+
+            return View(Medico);
         }
     }
-
 }

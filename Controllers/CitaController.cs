@@ -1,119 +1,83 @@
 ﻿using Citas_App.Models;
-using Citas_App.Models;
-using Citas_App.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+
 namespace Citas_App.Controllers
 {
     public class CitaController : Controller
     {
-        private static List<Paciente> _pacientes = new()
-        {
-            new Paciente
-            {
-                Id = 1,
-                Nombre = "Ana",
-                Apellido = "Garcia",
-                Email = "ana.garcia@gmail.com",
-                Telefono = "555-0001"
-            },
-            new Paciente
-            {
-                Id = 2,
-                Nombre = "Luis",
-                Apellido = "Martinez",
-                Email = "luis.martinez@gmail.com",
-                Telefono = "555-0002"
-            },
-            new Paciente
-            {
-                Id = 3,
-                Nombre = "Maria",
-                Apellido = "Lopez",
-                Email = "maria.lopez@gmail.com",
-                Telefono = "555-0003"
-            }
-        };
-        private static List<Medico> _medicos = new()
-        {
-            new Medico
-            {
-                Id = 1,
-                Nombre = "Dr. Carlos",
-                Apellido = "Reyes",
-                Especialidad="Medicina General",
-                NumeroLicencia = "MG-10421"
-            },
-            new Medico
-            {
-                Id = 2,
-                Nombre = "Dra. Patricia",
-                Apellido = "Vega",
-                Especialidad="Pediatria",
-                NumeroLicencia = "PG-20835"
-            },
-            new Medico
-            {
-                Id = 3,
-                Nombre = "Dr. Roberto",
-                Apellido = "Sánchez",
-                Especialidad="Cardiología",
-                NumeroLicencia = "CA-30117"
-            },
-        };
-        private static List<Cita> _citas = new()
-        {
-            new Cita
-            {
-                Id=1,
-                PacienteId=1,
-                MedicoId=1,
-                Fecha=new  DateOnly(2026, 1, 6),
-                Hora=new TimeOnly(9, 0, 0),
-                Motivo="Consulta general",
-                Estado="Confirmada"
-            },
+        // Rutas a los archivos JSON
+        private readonly string _jsonPath =
+            Path.Combine(Directory.GetCurrentDirectory(), "Data", "cita.json");
 
-            new Cita
-            {
-                Id=2,
-                PacienteId=2,
-                MedicoId=2,
-                Fecha=new DateOnly(2026, 1, 6),
-                Hora=new TimeOnly(10, 0, 0),
-                Motivo="Revisión de resultados",
-                Estado="Pendiente"
-            },
-            new Cita
-            {
-                Id=3,
-                PacienteId=3,
-                MedicoId=1,
-                Fecha=new DateOnly(2026, 1, 6),
-                Hora=new TimeOnly(11, 0, 0),
-                Motivo="Primera consulta",
-                Estado="Pendiente"
-            },
-        };
-        // Lista con filtro opcional por género
+        private readonly string _pacientesPath =
+            Path.Combine(Directory.GetCurrentDirectory(), "Data", "paciente.json");
 
-        public IActionResult Index()
+        private readonly string _medicosPath =
+            Path.Combine(Directory.GetCurrentDirectory(), "Data", "medicos.json");
+
+        // Leer citas
+        private List<Cita> ObtenerCitasDesdeJson()
         {
+            if (!System.IO.File.Exists(_jsonPath))
+                return new List<Cita>();
 
-            ViewBag.Pacientes = _pacientes;
-            ViewBag.Medicos = _medicos;
+            string jsonString = System.IO.File.ReadAllText(_jsonPath);
 
-            return View(_citas);
+            return JsonSerializer.Deserialize<List<Cita>>(jsonString)
+                   ?? new List<Cita>();
         }
 
+        // Leer pacientes
+        private List<Paciente> ObtenerPacientesDesdeJson()
+        {
+            if (!System.IO.File.Exists(_pacientesPath))
+                return new List<Paciente>();
 
-        // Detalle de un item
+            string jsonString = System.IO.File.ReadAllText(_pacientesPath);
 
+            return JsonSerializer.Deserialize<List<Paciente>>(jsonString)
+                   ?? new List<Paciente>();
+        }
+
+        // Leer médicos
+        private List<Medico> ObtenerMedicosDesdeJson()
+        {
+            if (!System.IO.File.Exists(_medicosPath))
+                return new List<Medico>();
+
+            string jsonString = System.IO.File.ReadAllText(_medicosPath);
+
+            return JsonSerializer.Deserialize<List<Medico>>(jsonString)
+                   ?? new List<Medico>();
+        }
+
+        // Muestra la agenda completa de citas
+        public IActionResult Index()
+        {
+            var citas = ObtenerCitasDesdeJson();
+
+            ViewBag.Pacientes = ObtenerPacientesDesdeJson();
+            ViewBag.Medicos = ObtenerMedicosDesdeJson();
+
+            return View(citas);
+        }
+
+        // Filtra las citas de un paciente específico
         public IActionResult PorPaciente(int pacienteId)
         {
-            var citas = _citas.Where(c => c.PacienteId == pacienteId).ToList();
-            ViewBag.Pacientes = _pacientes;
-            ViewBag.Medicos = _medicos;
-            return View(citas);
+            var citas = ObtenerCitasDesdeJson();
+            var citasPaciente = citas
+                .Where(c => c.PacienteId == pacienteId)
+                .ToList();
+
+            ViewBag.Pacientes = ObtenerPacientesDesdeJson();
+            ViewBag.Medicos = ObtenerMedicosDesdeJson();
+
+            return View(citasPaciente);
         }
     }
 }

@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "PacienteId": 1,
+    "MedicoId": 1,
+    "Fecha": "2026-06-15",
+    "Hora": "10:00:00",
+    "Motivo": "Chequeo general preventivo",
+    "Estado": "Confirmada"
+  },
+  {
+    "Id": 2,
+    "PacienteId": 1,
+    "MedicoId": 2,
+    "Fecha": "2026-06-20",
+    "Hora": "15:30:00",
+    "Motivo": "Consulta de seguimiento",
+    "Estado": "Pendiente"
+  },
+  {
+    "Id": 3,
+    "PacienteId": 2,
+    "MedicoId": 1,
+    "Fecha": "2026-06-17",
+    "Hora": "11:15:00",
+    "Motivo": "Revisión de exámenes de laboratorio",
+    "Estado": "Cancelada"
+  },
+  {
+    "Id": 4,
+    "PacienteId": 3,
+    "MedicoId": 3,
+    "Fecha": "2026-06-18",
+    "Hora": "09:00:00",
+    "Motivo": "Malestar general y fiebre",
+    "Estado": "Confirmada"
+  }
+]

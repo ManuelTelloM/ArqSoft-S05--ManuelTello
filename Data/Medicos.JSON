@@ -1,5 +1,23 @@
-Id=1, Nombre=Dr. Carlos Reyes, Especialidad=Medicina General, NumeroLicencia=MG-10421
-2.
-Id=2, Nombre=Dra. Patricia Vega, Especialidad=Pediatría, NumeroLicencia=PD-20835
-3.
-Id=3, Nombre=Dr. Roberto Sánchez, Especialidad=Cardiología, NumeroLicencia=CA-30117
+[
+  {
+    "Id": 1,
+    "Nombre": "Luis",
+    "Apellido": "Martínez",
+    "Especialidad": "Cardiología",
+    "NumeroLicencia": "LIC-12345"
+  },
+  {
+    "Id": 2,
+    "Nombre": "Elena",
+    "Apellido": "Ríos",
+    "Especialidad": "Pediatría",
+    "NumeroLicencia": "LIC-67890"
+  },
+  {
+    "Id": 3,
+    "Nombre": "Jorge",
+    "Apellido": "Alva",
+    "Especialidad": "Medicina General",
+    "NumeroLicencia": "LIC-45678"
+  }
+]

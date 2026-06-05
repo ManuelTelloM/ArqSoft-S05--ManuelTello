@@ -1,6 +1,0 @@
-1.
-Id=1, PacienteId=1, MedicoId=1, Fecha=1/6/2026, FechaHora=9:00, Motivo=Consulta general, Estado=Confirmada
-2.
-Id=2, PacienteId=2, MedicoId=2, Fecha=1/6/2026, FechaHora=10:00, Motivo=Revisión de resultados, Estado=Pendiente
-3.
-Id=3, PacienteId=3, MedicoId=1, Fecha=3/6/2026, FechaHora=11:00, Motivo=Primera consulta, Estado=Pendiente

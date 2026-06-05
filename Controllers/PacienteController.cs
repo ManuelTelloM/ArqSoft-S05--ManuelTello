@@ -1,52 +1,44 @@
 ﻿using Citas_App.Models;
-using Citas_App.Models;
-using Citas_App.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+
 namespace Citas_App.Controllers
 {
     public class PacienteController : Controller
     {
+        // Apunta exactamente a Pacientes.json en tu carpeta Data
+        private readonly string _jsonPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "paciente.json");
 
-        private static List<Paciente> _pacientes = new()
+        private List<Paciente> ObtenerPacientesDesdeJson()
         {
-            new Paciente
-            {
-                Id = 1,
-                Nombre = "Ana",
-                Apellido = "Garcia",
-                Email = "ana.garcia@gmail.com",
-                Telefono = "555-0001"
-            },
-            new Paciente
-            {
-                Id = 2,
-                Nombre = "Luis",
-                Apellido = "Martinez",
-                Email = "luis.martinez@gmail.com",
-                Telefono = "555-0002"
-            },
-            new Paciente
-            {
-                Id = 3,
-                Nombre = "Maria",
-                Apellido = "Lopez",
-                Email = "maria.lopez@gmail.com",
-                Telefono = "555-0003"
-            }
-        };
+            if (!System.IO.File.Exists(_jsonPath)) return new List<Paciente>();
 
-        // Lista con filtro opcional por género
+            string jsonString = System.IO.File.ReadAllText(_jsonPath);
+            return JsonSerializer.Deserialize<List<Paciente>>(jsonString) ?? new List<Paciente>();
+        }
 
-        public IActionResult Index() => View(_pacientes);
+        // Muestra todos los pacientes registrados
+        public IActionResult Index()
+        {
+            var pacientes = ObtenerPacientesDesdeJson();
+            return View(pacientes);
+        }
 
-
-
-        // Detalle de un item
-
+        // Muestra el detalle de un paciente
         public IActionResult Detalle(int id)
         {
-            var paciente = _pacientes.FirstOrDefault(p => p.Id == id);
-            return paciente == null ? NotFound() : View(paciente);
+            var pacientes = ObtenerPacientesDesdeJson();
+            var paciente = pacientes.FirstOrDefault(p => p.Id == id);
+
+            if (paciente == null)
+            {
+                return NotFound();
+            }
+
+            return View(paciente);
         }
     }
 }
