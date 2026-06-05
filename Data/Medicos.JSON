@@ -19,5 +19,12 @@
     "Apellido": "Alva",
     "Especialidad": "Medicina General",
     "NumeroLicencia": "LIC-45678"
+  },
+  {
+    "Id": 4,
+    "Nombre": "Marcus",
+    "Apellido": "Phoenix",
+    "Especialidad": "Cardiologo",
+    "NumeroLicencia": "CGO-00083"
   }
 ]

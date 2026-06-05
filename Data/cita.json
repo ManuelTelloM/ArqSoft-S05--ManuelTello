@@ -34,5 +34,15 @@
     "Hora": "09:00:00",
     "Motivo": "Malestar general y fiebre",
     "Estado": "Confirmada"
+  },
+
+  {
+    "Id": 5,
+    "PacienteId": 4,
+    "MedicoId": 4,
+    "Fecha": "2026-06-19",
+    "Hora": "05:30:00",
+    "Motivo": "Cirugia",
+    "Estado": "Confirmada"
   }
 ]
