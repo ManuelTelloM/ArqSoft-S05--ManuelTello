@@ -15,27 +15,27 @@ El objetivo de este proyecto es registrar citas médicas, del mismo modo poder a
 # Clausula de IA
 Yo Manuel Jesus Tello May, declaro que para esta actividad no hice uso de la inteligencia artificial ya que todo se realizo en conjunto con el preofesor en el salon de clases.
 
-#Capturas de pantalla de la aplicación.
+# Capturas de pantalla de la aplicación.
 
-#Menu principal
+# Menu principal
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1cdb153a-30f3-4bb8-855e-1c5efc47e2ae" />
 
-#Cita.
+# Cita.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8c9add48-e429-40ef-89db-1966f10d151b" />
 
-#Detalle de la cita.
+# Detalle de la cita.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bf1c3b1d-4990-414a-9e19-99b92f903814" />
 
-#Medicos.
+# Medicos.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a9cdfe85-9bc7-4419-9647-d58951524ab2" />
 
-#Detalle del medico.
+# Detalle del medico.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/165c242c-801e-482a-8e12-55a363f2f928" />
 
-#Paciente.
+# Paciente.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f914d04-d39f-45f4-a649-ff51cda1a8f7" />
 
-#Detalle del paciente.
+# Detalle del paciente.
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/df122d0d-391e-4804-ad1a-e866bce50f41" />
 
 
