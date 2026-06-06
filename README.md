@@ -1,5 +1,10 @@
 # Citas_App
-Este es un readme del sistema citas médicas.
+Nombre: Manuel Jesus Tello May
+Profesor: Jorge Javier Pedrozo Romero
+Asignatura: Arquietectura de Software.
+Carrera: Desarrollo de software
+Fecha: 05/06/2026
+Institución: Tecnologico de software.
 
 # De que trata.
 Esta actividad fue realizada en el salon de clases con los códigos que el profesor nos asigno, el objetivo de este proyecto es realizar una "agenda médica" en la cual se puedan checar que citas estan agendadas, los medicos asignados y el estado de la cita.
