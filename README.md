@@ -1,5 +1,5 @@
 # Citas_App
-Nombre: Manuel Jesus Tello May
+##Nombre: Manuel Jesus Tello May
 Profesor: Jorge Javier Pedrozo Romero
 Asignatura: Arquietectura de Software.
 Carrera: Desarrollo de software
