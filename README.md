@@ -18,7 +18,7 @@ El objetivo de este proyecto es registrar citas médicas, del mismo modo poder a
 
 
 # Clausula de IA
-Yo Manuel Jesus Tello May, declaro que para esta actividad no hice uso de la inteligencia artificial ya que todo se realizo en conjunto con el preofesor en el salon de clases.
+Yo Manuel Jesus Tello May, declaro que para esta actividad no hice uso de la inteligencia artificial ya que todo se realizo en conjunto con el profesor en el salon de clases.
 
 # Capturas de pantalla de la aplicación.
 
